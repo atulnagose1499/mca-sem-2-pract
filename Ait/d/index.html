@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>My Site's Title</title>
+</head>
+<body>
+
+    <canvas id="myDrawing" width="200" height="200" style="border:1px solid #EEE">
+    </canvas>
+            <script>
+                function drawFace() {
+                    var canvas = document.getElementById("myDrawing");
+                    var ctx = canvas.getContext("2d");
+
+                    var x = canvas.width / 2;
+                    var y = canvas.height / 2;
+                    var radius = 75;
+                    var startAngle = 0;
+                    var endAngle = 2 * Math.PI;
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, startAngle, endAngle);
+                    ctx.stroke();
+                    ctx.fillStyle = "yellow";
+                    ctx.fill();
+                    }
+
+                    function drawSmile(){
+                    var x = canvas.width / 2;
+                    var y = 160
+                    var radius = 40;
+                    var startAngle = 1.1 * Math.PI;
+                    var endAngle = 1.9 * Math.PI;
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, startAngle, endAngle);
+                    ctx.lineWidth = 7;
+
+                    // line color
+                    ctx.strokeStyle = 'black';
+                    ctx.stroke();
+                    }
+
+
+                    function drawEyes{
+                    var centerX = 40;
+                    var centerY = 0;
+                    var radius = 10;
+
+                    // save state
+                    ctx.save();
+
+                    // translate context so height is 1/3'rd from top of enclosing circle
+                    ctx.translate(canvas.width / 2, canvas.height / 3);
+
+                    // scale context horizontally by 50%
+                    ctx.scale(.5, 1);
+
+                    // draw circle which will be stretched into an oval
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+
+                    // restore to original state
+                    ctx.restore();
+
+                    // apply styling
+                    ctx.fillStyle = 'black';
+                    ctx.fill();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = 'black';
+                    ctx.stroke();
+
+                    //left eye
+                    var centerX = -40;
+                    var centerY = 0;
+                    var radius = 10;
+
+                    // save state
+                    ctx.save();
+
+                    // translate context so height is 1/3'rd from top of enclosing circle
+                    ctx.translate(canvas.width / 2, canvas.height / 3);
+
+                    // scale context horizontally by 50%
+                    ctx.scale(.5, 1);
+
+                    // draw circle which will be stretched into an oval
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+
+                    // restore to original state
+                    ctx.restore();
+
+                    // apply styling
+                    ctx.fillStyle = 'black';
+                    ctx.fill();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = 'black';
+                    ctx.stroke();
+                    }
+                    drawFace()
+
+   function drawHappyFace(){
+   drawFace();
+   drawEyes();
+   drawSmile();
+}
+
+drawHappyFace();
+
+            </script>        
+</body>
+</html>
